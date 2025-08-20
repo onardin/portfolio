@@ -11,20 +11,47 @@ code {
 }
 
 .profile-section {
-  position: sticky;
-  left: 150px;
+  position: static;
+  /* was sticky */
   flex-shrink: 0;
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  /* allow the child to stretch */
   flex-direction: column;
+  align-self: stretch;
+}
+
+.profile-section h1 {
+  font-size: 2.6rem; /* larger name */
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+
+.profile-section h2 {
+  font-size: 1.5rem; /* larger title */
+  font-weight: normal;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.profile-section .section-box {
+  height: auto;
+  /* match the right column total height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
 }
 
 .profile-pic {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  transform: scale(1.2);
+  object-position: top;
+  transform: scale(1.4);
+  overflow: hidden;
 }
 
 .profile-nav {
@@ -36,23 +63,98 @@ code {
   list-style: none;
 }
 
-.main-container {
+.fa-layers {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.fa-layers svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.social-links {
+  list-style: none;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 300px;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+}
+
+.social-links li {
+  margin-right: 10px;
+}
+
+.social-links svg{
+  font-size: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.social-links li:hover svg {
+  transform: scale(1.2);
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  /* left column width, tweak as you like */
+  align-items: stretch;
+  /* make both columns equal height */
+  column-gap: 80px;
+  /* replaces gap */
   padding: 40px 20px 40px 60px;
   min-height: 100vh;
   box-sizing: border-box;
 }
 
 .content-wrapper {
-  flex: 1;
   display: flex;
+  align-self: stretch;
+  /* ensure it fills the grid row height */
   justify-content: center;
 }
 
 .content-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   max-width: 700px;
   width: 100%;
+  margin: 0 auto;
+  padding: 24px 0;
+  /* matches the vertical spacing used by .section-box */
+}
+
+.section-box {
+  border: 2px solid #e5e7eb; /* light gray */
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.section-box {
+  margin: 24px 0;
+}
+
+.content-section .section-box:first-child {
+  margin-top: 0;
+}
+
+.content-section .section-box:last-child {
+  margin-bottom: 0;
 }

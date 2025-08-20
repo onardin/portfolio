@@ -7,13 +7,21 @@ export default function () {
     return (
         <div className="main-container">
             <div className="profile-section">
-                <Profile />
-            </div>  
+                <div className="section-box">
+                    <Profile />
+                </div>
+            </div> 
             <div className="content-wrapper">
                 <main className="content-section">
-                    <About />
-                    <Experience />
-                    <Projects />
+                    <div className="section-box">
+                        <About />
+                    </div>
+                    <div className="section-box">
+                        <Experience />
+                    </div>
+                    <div className="section-box">
+                        <Projects />
+                    </div>
                 </main>
             </div>
         </div>
